@@ -6,6 +6,17 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^0.27.2",
+    "checkout-sdk-node": "^2.1.1",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.1.1",
+    "dotenv": "^16.0.1",
+    "expo-server-sdk": "^3.6.0",
+    "firebase-admin": "^11.0.1",
+    "lodash": "^4.17.21",
+    "lodash.set": "^4.3.2",
+    "moment": "^2.29.4",
+    "qs": "^6.11.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-scripts": "5.0.0",
@@ -34,5 +45,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {
+    "express": "^4.17.3"
+  },
+  "type": "module"
 }
