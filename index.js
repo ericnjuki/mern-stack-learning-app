@@ -4,32 +4,17 @@ import fs from "fs";
 import axios from "axios";
 import qs from "qs";
 
-
-function encode(strs) {
-    // write your code here
-    let output = "";
-    strs.forEach(s => {
-        output += `${s.length}#${s}`;
-    });
-    return output;
-}
-
-function decode(str) {
-    // write your code here
-    let output = [], i = 0;
-    
-    while (i < str.length) {
-        let numOfDigits = str.indexOf('#', i) - i + 1;
-        let length = +str.split('').slice(i, str.indexOf('#', i)).join('');
-        console.log(length);
-        const start = i + numOfDigits;
-        const end = i + length + numOfDigits;
-        output.push(str.split('').slice(start, end).join(''));
-        i = i + length + numOfDigits;
+const formatList = (str) => {
+    let res = null;
+    try {
+       res = JSON.parse(str);
+       // is array of objects
+    } catch (error) {
+        if (str.includes('1.')) {
+            // is numbered list of objects
+            const jsonStr = `[${str.replace('1.', '').replace(/\d.\s*{/g, ',{')}]`;
+            res = JSON.parse(jsonStr);
+        }
     }
-    console.log(output);
-    return output;
+    return res;
 }
-
-const original = ["le+f", "7#code", "##loves", "6#3you"]
-decode(encode(original))
